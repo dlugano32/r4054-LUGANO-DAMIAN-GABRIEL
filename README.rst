@@ -1,7 +1,4 @@
-Repositorio del alumno
+# Técnicas Digitales II 2023
 
-Se deben respetar las siguientes condiciones para trabajar con este respositorio:
 
-1) No se subiran los binarios.
-2) Se debe respetar la estructura descripta en: https://sge.frba.utn.edu.ar/wiki/td3/doku.php?id=uso_del_git_para_la_entrega_de_tp .
-3) Solo deben subirse los archivos que forman parte de la entrega del TP. Las versiones de prueba y cualquier otro archivo, no deben subirse.
+This repository was used to submit practical assignments for the course "Digital Techniques II," in the fourth year of the Electronic Engineering program at UTN FRBA, Buenos Aires, Argentina. In this course, we engaged in bare-metal ARM programming for a non-paged memory task scheduler designed for a Cortex-A9. Additionally, there was an introduction to Verilog programming for a Zedboard Zynq 7020 FPGA.
