@@ -1,0 +1,31 @@
+Init stacks()
+Timer()
+GIC()
+Enable_IRQ()
+
+El timer va a interrumpir por el IRQ => Se tiene que programar el handler del timer para IRQ
+
+Primero se inicializa los stacks => Uno para cada modo
+
+Para que las funciones en C no me pisen datos importantes en la pila, teno que ponerle ciertos criterios
+
+__attribute(("irq"))Handler_IRQ() 
+|__ Le decis a la funcion que NO toque la pila
+
+Para inicializar un stack pointer le tengo que decir donde termina el stack
+
+MANUALES :
+- ARM dual timer module (SP084)
+- ARM Arquitecture reference manual
+- RealTime 
+
+Arquitectura ARMv7
+Micro-arquitectura como se implementa en el silicio
+
+
+TAREA:
+
+hacer una funcion board_init() en c _ _ gic_init()
+                                    |_timer_init()
+
+Hacer irq_enable en assembler

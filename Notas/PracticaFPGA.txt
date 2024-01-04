@@ -1,0 +1,80 @@
+Practica 3/10/23 - Digitales 2 
+
+Zedoard (Zynq-7020)
+
+Add sources 
+
+El del medio que es add or create design sources
+filte type verligo
+leb_blink
+
+Definicion basica de un modulo
+
+module led_blink(
+                    PUERTOS IN/OUT
+    );
+
+LOGICA
+
+endmodule
+
+Tres puntitos => si el de arriba esta verde entonces es el TOP MODULE (Es como el main)
+
+module led_blink(
+                    input clk,
+                    input [7:0] sw,
+                    output reg [7:0] leds
+                );
+
+            always @(posedge clk)
+                    begin
+                        leds=sw;
+                    end
+endmodule
+
+Archivo de regls -> add or create constraints -> Create file -> File type XDC
+
+Por default en verilog las variables son wires. Si queres que sea un registro tenes que poner reg
+
+cd a la carpeta donde tienen la instalacion de vivado
+
+cd /data/xicom/cable_drivers/lin64/install_script/install_drivers
+
+sudo ./install_drivers
+
+Definicion de registros
+
+reg [M:N] r_nombre_reg;
+wire [M:N] w_nombre_wire;
+
+// Declaracion de constante
+
+local param signed = 10;
+
+always @(posedge)   //Logica secuencial
+    begin
+    end
+
+always @(*)         //Logica combinacional
+    begin
+    end
+
+if(condicion)
+    begin
+    end
+else
+    begin
+    end
+
+Generics 
+
+module led_blink #(
+                    parameter N=10;
+                    parameter L=1
+                )
+                (
+                    Puertos
+                );
+
+
+Tools->Language Templates

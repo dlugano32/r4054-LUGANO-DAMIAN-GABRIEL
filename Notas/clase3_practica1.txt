@@ -1,0 +1,28 @@
+Proceso de compilar
+
+-as Hacer el objeto
+-ld Linkear
+-Objcopy Crear el binario
+
+-M  --> machine
+
+El program counter no amanece en 0, amanece en algun lugar de la memoria rom donde el desarrollador puso las primeras instrucciones a ejecutar, que testean el kernel, la memoria, etc.
+Esto esta en una parte de la memoria flash (rom) que no se puede sobrescribir. 
+Despues, tenes que poner el codigo a partir de una cierta direccion de memoria (rst vector) a la que apuntar cuando se termina de testear.
+
+Codigos a ejecutar
+
+qemu-system-arm -M realview-pb-a8 -m 32M -no-reboot -nographic -monitor telnet:127.0.0.1.1234,server,nowait -kernel $1 -S -gdb tcp::2159
+ 
+desde donde esta el .gdbinit en el repo propio ejecutar $ddd --debugger gdb-multiarch file.elf
+para debuggear el codigo
+
+=========================================================================
+Para generar el readelf : readelf -a file.elf >>outpupt.txt
+
+El encabezado .text siempre esta
+
+arm-linux-gnueabihf-objdump -D second_test.elf >>second_test.lst
+
+1era linea posiciones de memoria, lo que ve el program counter
+2da linea: opcode

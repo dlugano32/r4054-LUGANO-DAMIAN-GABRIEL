@@ -1,0 +1,42 @@
+Como iniciar el procesador:
+1- Entrar a la interrupcion RESET-> Vectoriza las interrupciones, inicializa las pilas
+
+Arranco en la direccion de memoria 0x70010000
+
+Codigos usados para compilar
+
+arm-linux-gnueabihf-as -o reset.o reset.s
+arm-linux-gnueabihf-as -o startup.o startup.s
+arm-linux-gnueabihf-ld -T memmap.ld obj/reset.o obj/startup.o -o obj/bios.elf -Map lst/bios_ld_map.map
+arm-linux-gnueabihf-objcopy -O binary obj/bios.elf bin/bios.bin
+arm-linux-gnueabihf-objdump -D obj/bios.elf > lst/bios.lst
+ddd --debugger gdb-multiarch tp2/obj/bios.elf
+
+
+################
+Tarea
+
+Armar un archivo handler.s donde esten las etiquetas
+.section .handlers
+UND:
+    B .
+SVC:
+IRQ:
+ABORT:
+PREFETCH:
+
+Modificar startup.s, arriba de .section .startup donde se va a poner una seccion .table_isr
+
+_table_start:
+    LDR PC, =addr_reset_vector
+
+addr_reset_vector: .word _reset_vector
+
+Despues hay que ir y poner esta tabla en el lugar correcto. Osea ISR_TABLE_INIT=0x00000000
+
+
+DESPUES hay que escrbir una rutina table_copy (le paso origen, destino, tamanio)
+
+_start:
+    table_copy:
+.end

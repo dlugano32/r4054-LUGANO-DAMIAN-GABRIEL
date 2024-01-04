@@ -1,0 +1,1 @@
+0x70000000 es fisicamente mimsa posicion de memoria que 0x00000000 

@@ -1,0 +1,16 @@
+ABI -> vincular mi programa de assembler con un programa de con
+
+Le paso los argumentos con de R0 a R3
+La funcion devuelve a R0 y R1
+
+=====================
+Las secciones son un bloque donde el procesador pone todas las instrucciones, si armo una seccion despues el ensamblador pone todo el codigo contendio en esa seccion en un mismo bloque de memoria
+=====================
+
+si las secciones son globales las puede acceder desde el assembler y desde el c
+
+En el .map muestra como va evolucionando el location counter -> es el mapa de memoria 
+
+##############################3
+el .o tiene el opcode y deja espacios vacios para que el linker venga a reubicar todo en el .elf reemplazando todo los vacios con las posiciones de memoria a las que me referi con simbolos
+el .elf tiene todo el codigo ordenado como va a estar mapeado en memoria para despues crear el .bin que es lo que le mandas al procesador 
